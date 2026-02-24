@@ -12,11 +12,11 @@ def create_person_list(people: list) -> list:
               for person_dict in people]
     for person_dict in people:
         if (person_dict.get("wife") is not None
-                and person_dict.get("wife") in Person.people):
+                and Person.people.get(person_dict.get("wife")) is not None):
             Person.people.get(person_dict.get("name")).wife = (
                 Person.people).get(person_dict.get("wife"))
         if (person_dict.get("husband") is not None
-                and person_dict.get("husband") in Person.people):
+                and Person.people.get(person_dict.get("husband")) is not None):
             Person.people.get(person_dict.get("name")).husband = (
                 Person.people).get(person_dict.get("husband"))
     return result
